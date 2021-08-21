@@ -57,7 +57,7 @@ async def on_message(message):
   if db["responding"]:
     options = starter_encouragements
     if "encouragements" in db.keys():
-      options = options + db["encouragements"]
+      options = options.extend(db["encouragements"])
 
     if any(word in msg for word in sad_words):
       await message.channel.send(random.choice(options))
